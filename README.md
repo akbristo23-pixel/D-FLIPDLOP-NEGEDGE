@@ -28,17 +28,33 @@ Next state of D flip-flop is always equal to data input, D for every positive tr
 
 **Procedure**
 
-/* write all the steps invloved */
+Define Inputs/Outputs: Inputs: D (data), c1k (clock); Outputs: Q, Qbar (~Q).
+Initialization: Set Q = 0 and Qbar = 1 at the start of the simulation.
+D Flip-Flop Logic: On the positive edge of c1k, assign Q = D.
+Complementary Output: Update Qbar = ~D to maintain complementarity.
+Testbench: Test with various D and c1k values to verify data storage functionality
 
-**PROGRAM**
+program:
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
-
+module exp8(D,c1k,Q,Qbar);
+input D,c1k;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge c1k)
+begin
+Q=D;
+Qbar=~D;
+end
+endmodule
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="986" height="771" alt="image" src="https://github.com/user-attachments/assets/4cd9e00e-809f-4e73-8192-d993bb22ea48" />
 
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1022" height="642" alt="image" src="https://github.com/user-attachments/assets/62b9c7d0-003e-4e86-a7cc-13c4c9ab7f06" />
 
 
 **RESULTS**
+Thus the D flipflop is implemented and verified
